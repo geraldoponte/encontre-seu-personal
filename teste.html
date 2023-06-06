@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Photo Album</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Photo Album</h1>
+    <div class="row" id="album"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script>
+    // Sample JSON data representing images and captions
+    var imageData = [
+      {
+        "image": "image1.jpg",
+        "caption": "Description 1"
+      },
+      {
+        "image": "image2.jpg",
+        "caption": "Description 2"
+      },
+      {
+        "image": "image3.jpg",
+        "caption": "Description 3"
+      }
+    ];
+
+    // Function to create HTML for each image and caption
+    function createImageHTML(image, caption) {
+      var html = `
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img src="${image}" class="card-img-top" alt="Image">
+            <div class="card-body">
+              <p class="card-text">${caption}</p>
+            </div>
+          </div>
+        </div>
+      `;
+      return html;
+    }
+
+    // Fetch JSON data and create HTML for each image
+    $(document).ready(function() {
+      var album = $("#album");
+
+      for (var i = 0; i < imageData.length; i++) {
+        var image = imageData[i].image;
+        var caption = imageData[i].caption;
+        var imageHTML = createImageHTML(image, caption);
+        album.append(imageHTML);
+      }
+    });
+  </script>
+</body>
+</html>
