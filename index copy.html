@@ -37,7 +37,7 @@
 
     <div class="filtros"></div>
       <div class="filtro">
-        <select id="seletorModalidade" onchange="handleChange(this)">
+        <select>
           <option value="">Selecione uma modalidade</option>
           <option value="1">Musculação</option>
           <option value="2">Aeróbica</option>
@@ -51,7 +51,7 @@
     </div>
     <p></p>
     <p></p>
-    <div class="container" id="albumContainer">
+    <div class="container">
       <div class="row" id="album"></div>
     </div>
   </main>
@@ -68,12 +68,9 @@
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script>
 
-    var modalidades = [imagensMusculacao, imagensAerobica];
+    var modalidades = ["Musculação", "Aeróbica", "Defesa Pessoal", "Crossfit"];
     // Sample JSON data representing images and captions
-
-    var modalidadeSelecionada = -1;
-
-    var imagensMusculacao = [
+    var imageData = [
       {
         "image": "./img/faces/john-cena.jpg",
         "caption": "John Cena: Musculação"
@@ -88,30 +85,11 @@
       },
       {
         "image": "./img/faces/jason-statham.jpg",
-        "caption": "Jason Statham: Musculação e Defesa Pessoal"
+        "caption": "Tom Cruise: Musculação e Defesa Pessoal"
       }
     ];
 
-    var imagensAerobica = [
-      {
-        "image": "./img/faces/gal-gadot.jpg",
-        "caption": "Gal Gadot: Aeróbica"
-      },
-      {
-        "image": "./img/faces/alicia-vikander.jpg",
-        "caption": "Alicia Vikander: Aeróbica"
-      },
-      {
-        "image": "./img/faces/margot-robbie.jpg",
-        "caption": "Margot Robbie: Aeróbica"
-      }
-    ];
-
-
-    function handleChange(selectElement) {
-      var selectedValue = selectElement.value;
-      modalidadeSelecionada = selectedValue-1;      
-    }
+    
 
     // Function to create HTML for each image and caption
     function createImageHTML(image, caption) {
@@ -143,29 +121,14 @@
 
     function buscarProfissionais() {
       var album = $("#album");
-      var imagens = [];
 
-      switch(modalidadeSelecionada) {
-        case 0: 
-          imagens = imagensMusculacao;
-          break;
-        case 1:
-          imagens = imagensAerobica;
-          break;
-        default:
-          imagens = [];
-      }   
-      
-      //const albumContainer = document.getElementById("albumContainer");
-      //albumContainer.replaceChildren();
-      
-      for (var i = 0; i < imagens.length; i++) {
-        var image = imagens[i].image;
-        var caption = imagens[i].caption;
+      for (var i = 0; i < imageData.length; i++) {
+        var image = imageData[i].image;
+        var caption = imageData[i].caption;
         var imageHTML = createImageHTML(image, caption);
         album.append(imageHTML);
       }
-    }
+        }
   </script>
   
 </body>

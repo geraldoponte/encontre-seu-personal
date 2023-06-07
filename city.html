@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Seletor de Cidade</title>
+  <style>
+    .city-selector {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid #ccc;
+      padding: 5px;
+      border-radius: 4px;
+    }
+
+    .city-selector select {
+      border: none;
+      outline: none;
+      background: transparent;
+      padding: 0 5px;
+      font-size: 16px;
+    }
+
+    .city-selector .gym-icon {
+      margin-left: 5px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="city-selector">
+    <select>
+      <option value="">Selecione uma cidade</option>
+      <option value="1">Fortaleza</option>
+      <option value="2">Recife</option>
+      
+      <!-- Adicione mais opções de cidades aqui -->
+    </select>
+    <span class="gps-icon">🌎</span>
+  </div>
+</body>
+</html>

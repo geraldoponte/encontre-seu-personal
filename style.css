@@ -2,3 +2,53 @@ body {
     background-image: url('/img/bg/academia.jpg');
     background-size: cover;    
 }
+
+filtros {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+filtros select {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0 5px;
+    font-size: 16px;
+}
+
+filtros .gym-icon {
+    margin-left: 5px;
+    font-size: 20px;
+}
+
+.botao-pesquisar {
+    border: none;    
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+    background-color: #ccc;
+    color: #fff;
+    padding: 10px 20px;    
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+
+/* Efeito ao passar o cursor */
+.botao-pesquisar:hover {
+    background-color: #999;
+}
