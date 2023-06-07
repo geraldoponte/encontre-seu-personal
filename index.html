@@ -41,8 +41,8 @@
           <option value="">Selecione uma modalidade</option>
           <option value="1">Musculação</option>
           <option value="2">Aeróbica</option>
-          <option value="2">Defesa Pessoal</option>
-          <option value="2">Crossfit</option>
+          <option value="3">Defesa Pessoal</option>
+          <option value="4">Crossfit</option>
           <!-- Adicione mais opções de modalidades aqui -->
         </select>
         <span class="gym-icon">🏋️</span>
@@ -68,7 +68,7 @@
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script>
 
-    var modalidades = [imagensMusculacao, imagensAerobica];
+    var modalidades = [imagensMusculacao, imagensAerobica, imagensDefesaPessoal, imagensCrossfit];
     // Sample JSON data representing images and captions
 
     var modalidadeSelecionada = -1;
@@ -76,19 +76,23 @@
     var imagensMusculacao = [
       {
         "image": "./img/faces/john-cena.jpg",
-        "caption": "John Cena: Musculação"
+        "caption": "John Cena: Musculação e Crossfit"
       },
       {
         "image": "./img/faces/the-rock.jpg",
         "caption": "The Rock: Musculação e Crossfit"
       },
       {
-        "image": "./img/faces/tom-cruise.jpg",
-        "caption": "Tom Cruise: Musculação"
+        "image": "./img/faces/henry-cavill.jpg",
+        "caption": "Henry Cavill: Musculação"
       },
       {
         "image": "./img/faces/jason-statham.jpg",
         "caption": "Jason Statham: Musculação e Defesa Pessoal"
+      },
+      {
+        "image": "./img/faces/chris-hemsworth.jpg",
+        "caption": "Chris Hemsworth: Musculação"
       }
     ];
 
@@ -104,13 +108,54 @@
       {
         "image": "./img/faces/margot-robbie.jpg",
         "caption": "Margot Robbie: Aeróbica"
+      },
+      {
+        "image": "./img/faces/jenifer-garner.jpg",
+        "caption": "Jenifer Garner: Aeróbica e Defesa Pessoal"
+      }
+    ];
+
+
+    var imagensDefesaPessoal = [
+      {
+        "image": "./img/faces/keanu-reeves.jpg",
+        "caption": "Keanu Reeves: Defesa Pessoal"
+      },
+      {
+        "image": "./img/faces/matt-damon.jpg",
+        "caption": "Matt Damon: Defesa Pessoal"
+      },
+      {
+        "image": "./img/faces/tom-cruise.jpg",
+        "caption": "Tom Cruise: Defesa Pessoal"
+      },
+      {
+        "image": "./img/faces/jason-statham.jpg",
+        "caption": "Jason Statham: Musculação e Defesa Pessoal"
+      },
+      {
+        "image": "./img/faces/jenifer-garner.jpg",
+        "caption": "Jenifer Garner: Aeróbica e Defesa Pessoal"
+      }
+    ];
+
+    var imagensCrossfit = [
+      {
+        "image": "./img/faces/john-cena.jpg",
+        "caption": "John Cena: Musculação e Crossfit"
+      },
+      {
+        "image": "./img/faces/the-rock.jpg",
+        "caption": "The Rock: Musculação e Crossfit"
       }
     ];
 
 
     function handleChange(selectElement) {
       var selectedValue = selectElement.value;
-      modalidadeSelecionada = selectedValue-1;      
+      modalidadeSelecionada = selectedValue-1;       
+      const album = document.getElementById("album");
+      album.innerHTML = "";     
     }
 
     // Function to create HTML for each image and caption
@@ -152,13 +197,16 @@
         case 1:
           imagens = imagensAerobica;
           break;
+        case 2:
+          imagens = imagensDefesaPessoal;
+          break;
+        case 3:
+          imagens = imagensCrossfit;
+          break;          
         default:
           imagens = [];
       }   
-      
-      //const albumContainer = document.getElementById("albumContainer");
-      //albumContainer.replaceChildren();
-      
+            
       for (var i = 0; i < imagens.length; i++) {
         var image = imagens[i].image;
         var caption = imagens[i].caption;
